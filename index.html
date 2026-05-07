@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibraas Azka - IT Support & Network Specialist</title>
+    <meta name="description" content="IT Support Specialist with hands-on experience at PT KAI Daop 6 Yogyakarta. Expert in MikroTik, CCTV Systems, Fiber Optics, Server Maintenance.">
+    <meta name="keywords" content="IT Support, Network Engineer, MikroTik, CCTV, Fiber Optic, PT KAI, SMKN 9 Surakarta">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #0f172a;
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --primary: #1e40af;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --kai-red: #dc2626;
+            --success: #10b981;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 0;
+            backdrop-filter: blur(25px);
+            background: rgba(10, 14, 26, 0.95);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--kai-red), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--kai-red);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, var(--kai-red), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(220, 38, 38, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--kai-red) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            border-radius: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--kai-red), var(--accent));
+            color: white;
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+            margin-right: 1.5rem;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(220, 38, 38, 0.4);
+        }
+
+        .cta-secondary:hover {
+            background: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 5rem;
+            background: linear-gradient(135deg, var(--kai-red), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--kai-red), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 1;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--kai-red);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        .about-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--kai-red);
+            font-weight: 700;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.15rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--kai-red), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--kai-red), var(--secondary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .timeline-content {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 24px;
+            position: relative;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            width: 24px;
+            height: 24px;
+            background: var(--kai-red);
+            border-radius: 50%;
+            border: 4px solid var(--bg-secondary);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -46px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -46px;
+        }
+
+        .timeline-badge {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            background: var(--kai-red);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-content h4 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--secondary);
+            box-shadow: 0 40px 80px rgba(14, 165, 233, 0.2);
+        }
+
+        .skill-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.2rem;
+            color: var(--bg-primary);
+            position: relative;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 320px;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-16px);
+            border-color: var(--secondary);
+            box-shadow: 0 50px 100px rgba(14, 165, 233, 0.25);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.95) 100%);
+            padding: 2.5rem 2rem 2rem;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .portfolio-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-card {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            padding: 3.5rem;
+            border-radius: 24px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info:hover {
+            background: rgba(14, 165, 233, 0.15);
+            transform: translateX(8px);
+        }
+
+        .contact-info i {
+            width: 32px;
+            font-size: 1.4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline-item:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .timeline-content::before {
+                left: 20px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            padding: 4rem 0 2rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">NIBRAAS AZKA</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero fade-in">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-certificate"></i>
+                PT KAI Daop 6 Yogyakarta
+            </div>
+            <h1>IT Support <span>Specialist</span></h1>
+            <p class="hero-subtitle">
+                Network Engineer with proven experience at PT Kereta Api Indonesia<br>
+                <strong>SMK Negeri 9 Surakarta | MikroTik | CCTV | Fiber Optics</strong>
+            </p>
+            <div>
+                <a href="#contact" class="cta-button cta-primary">
+                    <i class="fas fa-rocket"></i> Hire Me
+                </a>
+                <a href="#portfolio" class="cta-button cta-secondary">
+                    <i class="fas fa-eye"></i> View Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section fade-in delay-1">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="profile-image">
+                    <img src="sertifikat.jpeg" alt="Nibraas Azka - PT KAI Certificate">
+                    <div class="profile-badge">🏆 CERTIFIED</div>
+                </div>
+                <div class="about-content">
+                    <h3>Production-Ready IT Professional</h3>
+                    <p>Hands-on experience maintaining critical infrastructure for PT KAI Daop 6 Yogyakarta. Specialized in network systems, CCTV surveillance, fiber optic networks, and server administration.</p>
+                    <p>Ready for full-time IT Support, Network Technician, or NOC Engineer roles. 24/7 on-call availability.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <div>Months PT KAI</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <div>Tickets Resolved</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6+</span>
+                            <div>Stations Covered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section fade-in delay-2" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-badge">Jan 2026 - Apr 2026</div>
+                        <h3>IT Support Specialist</h3>
+                        <h4>PT Kereta Api Indonesia Daop 6 Yogyakarta</h4>
+                        <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-top: 1.5rem; font-size: 1.05rem;">
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>CCTV & PIDS systems across 6+ stations</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Fiber optic splicing & OTDR testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Server maintenance & Windows deployment</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>50+ network incidents resolved</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-badge">2023 - 2026</div>
+                        <h3>Network Engineering</h3>
+                        <h4>SMK Negeri 9 Surakarta</h4>
+                        <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-top: 1.5rem; font-size: 1.05rem;">
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>MikroTik RouterOS mastery</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Debian Linux administration</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Cisco Packet Tracer & GNS3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section fade-in delay-3">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, var(--kai-red), #b91c1c);">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>CCTV Systems</h3>
+                    <p>Installation, maintenance, recording retrieval<br>PIDS indoor/outdoor systems</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, var(--secondary), #0284c7);">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>MikroTik RouterOS</h3>
+                    <p>Hotspot, firewall rules, VLAN, VPN<br>DHCP server, traffic shaping</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, var(--accent), #d97706);">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Server Management</h3>
+                    <p>Wallmount servers, Windows 10/11<br>Hardware troubleshooting</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, var(--success), #059669);">
+                        <i class="fas fa-network-wired"></i> <!-- FIBER OPTIC FIXED! -->
+                    </div>
+                    <h3>Fiber Optics</h3>
+                    <p>Splicing, OTDR testing, Cat6 crimping<br>Fiber optic network certification</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3>Debian Linux</h3>
+                    <p>Traffic analysis, Cacti monitoring<br>SQL databases, system administration</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Network Simulation</h3>
+                    <p>Cisco Packet Tracer, GNS3<br>VoIP P2P, network topology design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section fade-in delay-2" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="portfolio-grid">
+                <!-- CERTIFICATE - TOP PRIORITY -->
+                <div class="portfolio-item">
+                    <img src="sertifikat.jpeg" alt="PT KAI Official Certificate" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">🏆 PT KAI Certificate</div>
+                        <div class="portfolio-desc">Official recognition for 4 months exemplary performance at Daop 6 Yogyakarta</div>
+                    </div>
+                </div>
+
+                <!-- CCTV -->
+                <div class="portfolio-item">
+                    <img src="Pemasangan dan Setting CCTV.jpeg" alt="CCTV Installation" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">CCTV Installation</div>
+                        <div class="portfolio-desc">Professional CCTV system deployment across multiple stations</div>
+                    </div>
+                </div>
+
+                <!-- FIBER OPTIC -->
+                <div class="portfolio-item">
+                    <img src="Perbaikan Jaringan & Senter FO.jpeg" alt="Fiber Optic Repair" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Fiber Optic Repair</div>
+                        <div class="portfolio-desc">Network troubleshooting with OTDR fiber testing equipment</div>
+                    </div>
+                </div>
+
+                <!-- SERVER -->
+                <div class="portfolio-item">
+                    <img src="Perawatan Wallmount Server.jpeg" alt="Server Maintenance" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Server Maintenance</div>
+                        <div class="portfolio-desc">Wallmount server maintenance and optimization</div>
+                    </div>
+                </div>
+
+                <!-- MIKROTIK -->
+                <div class="portfolio-item">
+                    <img src="Mikrotik Hotspot Login.jpeg" alt="MikroTik Hotspot" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">MikroTik Hotspot</div>
+                        <div class="portfolio-desc">Enterprise-grade hotspot login configuration</div>
+                    </div>
+                </div>
+
+                <!-- WINDOWS DEPLOYMENT -->
+                <div class="portfolio-item">
+                    <img src="Install Ulang PC OS Windows 10 & 11.jpeg" alt="Windows Deployment" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Windows Deployment</div>
+                        <div class="portfolio-desc">Clean OS installation and system optimization</div>
+                    </div>
+                </div>
+
+                <!-- MORE PROJECTS -->
+                <div class="portfolio-item">
+                    <img src="Penggantian SSD Rekaman CCTV Kereta Api.jpeg" alt="SSD Upgrade" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">SSD Upgrade</div>
+                        <div class="portfolio-desc">CCTV storage system upgrade and maintenance</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="Perbaikan Mesin Printer.jpeg" alt="Printer Service" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Hardware Service</div>
+                        <div class="portfolio-desc">Printer repair and maintenance service</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="Konfigurasi Cacti Monitoring Jaringan dan Perangkat.jpeg" alt="Cacti Monitoring" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Network Monitoring</div>
+                        <div class="portfolio-desc">Cacti monitoring system configuration</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section fade-in">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3><i class="fas fa-address-book"></i> Contact Details</h3>
+                    <a href="mailto:nibraasazka172@gmail.com" class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>nibraasazka172@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/6288706677254" target="_blank" class="contact-info">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+62 887-0667-7254</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nibraas-azka-a69524352" target="_blank" class="contact-info">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <h3><i class="fas fa-rocket"></i> Ready to Deploy</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2.5rem; font-size: 1.15rem;">
+                        Available immediately for <strong>IT Support, Network Technician, NOC Engineer</strong> positions.<br>
+                        Production-ready with enterprise experience.
+                    </p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="mailto:nibraasazka172@gmail.com?subject=IT%20Support%20-%20Nibraas%20Azka" class="cta-button cta-primary" style="flex: 1; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i> Email Me
+                        </a>
+                        <a href="https://wa.me/6288706677254?text=Hello%20from%20portfolio" class="cta-button cta-secondary" target="_blank" style="flex: 1; justify-content: center;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <strong>Nibraas Azka</strong> © 2026 | 
+                <span style="color: var(--kai-red);">PT KAI Daop 6 Alumni</span> | 
+                Built for IT Excellence 🚂💻
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll & navbar active
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 100) {
+                    navbar.style.background = 'rgba(10, 14, 26, 0.98)';
+                } else {
+                    navbar.style.background = 'rgba(10, 14, 26, 0.95)';
+                }
+            });
+
+            // Active nav link
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 250;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Fade in animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
